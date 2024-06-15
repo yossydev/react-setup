@@ -2,9 +2,12 @@
   "name": "initial-react",
   "version": "1.0.0",
   "main": "./src/index.js",
+  "type": "module",
   "scripts": {
     "dev": "npm run build && webpack serve",
-    "build": "webpack"
+    "dev:ssr": "npm run build:ssr && node ./src/server.js &&webpack serve",
+    "build": "webpack",
+    "build:ssr": "webpack --env ssr"
   },
   "author": "yossydev",
   "license": "ISC",

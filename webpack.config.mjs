@@ -39,10 +39,11 @@ const config = (env) => {
     },
     plugins: [
       // index.htmlをwebpackのbuildに含める
-      new HtmlWebpackPlugin({
-        filename: "index.html",
-        template: `${__dirname}/template/index.html`,
-      }),
+      !env.ssr &&
+        new HtmlWebpackPlugin({
+          filename: "index.html",
+          template: `${__dirname}/template/index.html`,
+        }),
     ],
   };
 };
